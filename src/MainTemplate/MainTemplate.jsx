@@ -1,5 +1,6 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { clsx } from "clsx";
+import { Typography, Button } from "@mui/material";
 
 export default function MainTemplate() {
   const { pathName } = useLocation();
@@ -41,9 +42,12 @@ export default function MainTemplate() {
         </nav>
       </header>
       <main>
+        <Button>Click me</Button>
         <Outlet />
       </main>
-      <footer>2023</footer>
+      <footer>
+        <Typography>2023</Typography>
+      </footer>
     </>
   );
 }

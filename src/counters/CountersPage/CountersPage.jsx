@@ -1,9 +1,10 @@
+import { Typography } from "@mui/material";
 import { Counter } from "../Counter";
 
 export default function CountersPage() {
   return (
     <>
-      <h1>CountersPage</h1>
+      <Typography variant="h1">CountersPage</Typography>
       <Counter initialValue={34} step={4} />
       <Counter initialValue={15} step={3} />
       <Counter initialValue={-6} />
