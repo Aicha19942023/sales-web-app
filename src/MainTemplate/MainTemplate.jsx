@@ -1,9 +1,17 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { clsx } from "clsx";
-import { Typography, Button } from "@mui/material";
+import {
+  Typography,
+  Box,
+  IconButton,
+  Avatar,
+  AppBar,
+  Container,
+  Toolbar,
+} from "@mui/material";
+import { Footer, Button } from "./styles";
 
 export default function MainTemplate() {
-  const { pathName } = useLocation();
+  const { pathname } = useLocation();
   const menu = [
     {
       to: "/",
@@ -17,37 +25,53 @@ export default function MainTemplate() {
   return (
     <>
       <header>
-        <nav>
-          <ol>
-            {menu.map(({ to, label }) => (
-              <li key={label}>
-                {/* <Link to={to} className="menu-item current">
-                  {label}
-                </Link> */}
-                <Link
-                  to={to}
-                  className={(clsx("menu-item"), { current: to === pathName })}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-            {/* <li>
-              <Link to="/counters" className="menu-item">
-                Counter
-              </Link>
-            </li>
-            <li>Menu 3</li> */}
-          </ol>
-        </nav>
+        <AppBar position="static">
+          <Container maxWidth="xl">
+            <Toolbar disableGutters>
+              <Typography
+                variant="h6"
+                noWrap
+                component={Link}
+                to="/"
+                sx={{
+                  mr: 2,
+                  display: "flex",
+                  color: "inherit",
+                  textDecoration: "none",
+                }}
+              >
+                Sales
+              </Typography>
+
+              <Box sx={{ flexGrow: 1, display: "flex" }}>
+                {menu.map(({ to, label }) => (
+                  <Button
+                    key={label}
+                    component={Link}
+                    to={to}
+                    current={pathname === to}
+                  >
+                    {label}
+                  </Button>
+                ))}
+              </Box>
+
+              <Box sx={{ flexGrow: 0 }}>
+                <IconButton component={Link} onClick={() => {}} sx={{ p: 0 }}>
+                  <Avatar>RL</Avatar>
+                </IconButton>
+              </Box>
+            </Toolbar>
+          </Container>
+        </AppBar>
       </header>
       <main>
         <Button>Click me</Button>
         <Outlet />
       </main>
-      <footer>
+      <Footer>
         <Typography>2023</Typography>
-      </footer>
+      </Footer>
     </>
   );
 }
