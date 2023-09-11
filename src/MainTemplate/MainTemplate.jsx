@@ -66,7 +66,6 @@ export default function MainTemplate() {
         </AppBar>
       </header>
       <main>
-        <Button>Click me</Button>
         <Outlet />
       </main>
       <Footer>
