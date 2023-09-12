@@ -1,5 +1,7 @@
 import { Card, CardContent, Typography } from "@mui/material";
-import { Counter } from "../Counter";
+import { Counter } from "../../ds/organisms";
+
+//import Counter from "../../ds/organisms
 
 export default function CountersPage() {
   return (

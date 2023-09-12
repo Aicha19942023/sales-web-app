@@ -6,7 +6,7 @@ import {
   Typography,
 } from "@mui/material";
 import { number } from "prop-types";
-import useCounter from "../../hooks/useCounter";
+import { useCounter } from "../../../hooks";
 
 export default function Counter({ initialValue = 0, step = 1 }) {
   const [counter, { increment, descrement }] = useCounter(initialValue, step);
